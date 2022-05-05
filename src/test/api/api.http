@@ -1,0 +1,22 @@
+POST http://localhost:8080/regions
+Content-Type: application/json
+
+{
+  "name": "행정구역",
+  "area": [
+    {
+      "x": 1,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 1,
+      "y": 2
+    }
+  ]
+}
+
+###
