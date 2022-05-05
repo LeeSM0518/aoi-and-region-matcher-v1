@@ -21,12 +21,13 @@ public class Region {
 
   @Id
   @GeneratedValue(generator = "increment")
-  @Column(name = "region_id")
+  @Column(name = "region_id", nullable = false)
   private Integer id;
 
+  @Column(nullable = false)
   private String name;
 
-  @Column(columnDefinition = "geometry(Point, 4326)")
+  @Column(columnDefinition = "geometry(Point, 4326)", nullable = false)
   private Polygon area;
 
   public Region(final String name, final List<Point> area) {
