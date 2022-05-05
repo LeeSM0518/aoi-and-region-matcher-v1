@@ -1,4 +1,4 @@
-package io.wisoft.aoiandregionmetcherv1;
+package io.wisoft.aoiandregionmatcherv1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
