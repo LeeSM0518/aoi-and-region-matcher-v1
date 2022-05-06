@@ -1,6 +1,8 @@
 package io.wisoft.aoiandregionmatcherv1.entity.factory;
 
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
+import io.wisoft.aoiandregionmatcherv1.exception.RingNotClosedException;
+import io.wisoft.aoiandregionmatcherv1.exception.StringToPolygonParseException;
 import org.junit.jupiter.api.Test;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Polygon;
@@ -13,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 class PolygonFactoryTest {
 
   @Test
-  void createPolygonTest() {
+  void createPolygonFromPointsTest() {
     final Point point1 = new Point(1, 2);
     final Point point2 = new Point(3, 4);
     final Point point3 = new Point(1, 2);
@@ -37,6 +39,22 @@ class PolygonFactoryTest {
 
     assertThatExceptionOfType(RingNotClosedException.class)
         .isThrownBy(() -> PolygonFactory.createPolygon(points));
+  }
+
+  @Test
+  void createPolygonFromStringTest() {
+    String areaText = "Polygon((1 1, 2 3, 3 4, 4 5, 1 1))";
+    final Polygon polygon = PolygonFactory.createPolygon(areaText);
+    assertThat(polygon).isInstanceOf(Polygon.class);
+    assertThat(polygon).isNotNull();
+  }
+
+  @Test
+  void failToCreatePolygonByStringToPolygonParse() {
+    String areaText = "Polygon";
+
+    assertThatExceptionOfType(StringToPolygonParseException.class)
+        .isThrownBy(() -> PolygonFactory.createPolygon(areaText));
   }
 
 }

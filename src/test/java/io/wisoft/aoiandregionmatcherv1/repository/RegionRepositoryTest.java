@@ -1,6 +1,7 @@
 package io.wisoft.aoiandregionmatcherv1.repository;
 
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
+import io.wisoft.aoiandregionmatcherv1.entity.Aoi.AoiRow;
 import io.wisoft.aoiandregionmatcherv1.entity.Region;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
 @DataJpaTest
@@ -26,6 +28,13 @@ class RegionRepositoryTest {
     final Region region = new Region(name, points);
 
     regionRepository.save(region);
+  }
+
+  @Test
+  void findAoisIncludedRegionTest() {
+    final int regionId = 1;
+    final List<AoiRow> aoiRows = regionRepository.findAoisIncludedRegion(regionId);
+    assertThat(aoiRows).isNotNull();
   }
 
 }
