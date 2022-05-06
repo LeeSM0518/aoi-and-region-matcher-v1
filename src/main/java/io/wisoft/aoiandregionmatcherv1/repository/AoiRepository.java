@@ -16,6 +16,6 @@ public interface AoiRepository extends JpaRepository<Aoi, Integer> {
       "FROM aoi a, st_setsrid(st_point(:x, :y), 4326) p " +
       "ORDER BY st_distance(p, a.area) " +
       "LIMIT 1", nativeQuery = true)
-  AoiRow findAoiClosestToPoint(@Param(value = "x") Double x, @Param(value = "y") Double y);
+  AoiRow findAoiNearestFromPoint(@Param(value = "x") Double x, @Param(value = "y") Double y);
 
 }
