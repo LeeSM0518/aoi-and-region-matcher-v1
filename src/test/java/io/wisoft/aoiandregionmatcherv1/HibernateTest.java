@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -12,6 +13,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
+@IntegrationTest
 public class HibernateTest {
 
   @Autowired

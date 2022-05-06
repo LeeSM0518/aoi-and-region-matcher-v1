@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
@@ -17,6 +18,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@IntegrationTest
 class RegionControllerTest {
 
   @Autowired

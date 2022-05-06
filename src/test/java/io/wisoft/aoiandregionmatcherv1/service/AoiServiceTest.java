@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.service;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoiNearestFromPointRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterAoiRequest;
@@ -18,6 +19,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
+@IntegrationTest
 class AoiServiceTest {
 
   @Autowired

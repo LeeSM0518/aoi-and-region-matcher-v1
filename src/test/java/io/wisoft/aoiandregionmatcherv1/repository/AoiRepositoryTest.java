@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.repository;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi.AoiRow;
@@ -18,6 +19,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
+@IntegrationTest
 class AoiRepositoryTest {
 
   @Autowired

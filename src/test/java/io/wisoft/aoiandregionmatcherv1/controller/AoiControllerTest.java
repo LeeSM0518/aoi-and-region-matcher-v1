@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoiNearestFromPointResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterAoiRequest;
@@ -17,13 +18,14 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@IntegrationTest
 class AoiControllerTest {
 
   @Autowired
   private WebTestClient webTestClient;
 
   @Test
-  void registerAoiTest() {
+  void registerAoiTest1() {
     final String name = "관심구역";
     final List<Point> area = List.of(new Point(1, 2), new Point(3, 4), new Point(1, 2));
     final RegisterAoiRequest request = new RegisterAoiRequest(name, area);
