@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoiNearestFromPointResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterAoiRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterAoiResponse;
@@ -38,6 +39,26 @@ class AoiControllerTest {
         })
         .consumeWith(response -> {
           final RegisterAoiResponse responseBody = response.getResponseBody();
+          assertThat(responseBody).isNotNull();
+        });
+  }
+
+  @Test
+  void FindAoiNearestFromPointTest() {
+    final double latitude = 126.979;
+    final double longitude = 37.576;
+
+    this.webTestClient
+        .get()
+        .uri("/aois?lat=" + latitude + "&long=" + longitude)
+        .accept(APPLICATION_JSON)
+        .exchange()
+        .expectStatus().isOk()
+        .expectHeader().valueEquals("Content-Type", "application/json")
+        .expectBody(new ParameterizedTypeReference<FindAoiNearestFromPointResponse>() {
+        })
+        .consumeWith(response -> {
+          final FindAoiNearestFromPointResponse responseBody = response.getResponseBody();
           assertThat(responseBody).isNotNull();
         });
   }
