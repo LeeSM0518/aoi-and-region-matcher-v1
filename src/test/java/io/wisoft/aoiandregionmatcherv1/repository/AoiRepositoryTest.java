@@ -53,9 +53,9 @@ class AoiRepositoryTest {
   }
 
   @Test
-  void findAoiClosestToPointTest() {
+  void findAoiNearestFromPointTest() {
     final Point point = new Point(126.979, 37.576);
-    final AoiRow aoi = aoiRepository.findAoiClosestToPoint(point.getX(), point.getY());
+    final AoiRow aoi = aoiRepository.findAoiNearestFromPoint(point.getX(), point.getY());
 
     final Integer id = aoi.getId();
     final String name = aoi.getName();
