@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.service;
 
+import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
@@ -21,6 +22,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
+@IntegrationTest
 class RegionServiceTest {
 
   @Autowired
