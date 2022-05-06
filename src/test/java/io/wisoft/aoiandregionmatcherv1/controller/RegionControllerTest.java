@@ -1,5 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionResponse;
@@ -40,6 +41,25 @@ class RegionControllerTest {
           final RegisterRegionResponse responseBody = response.getResponseBody();
           assertThat(responseBody).isNotNull();
         });
+  }
+
+  @Test
+  void findAoisIncludedRegionTest() {
+    final int regionId = 1;
+    this.webTestClient
+        .get()
+        .uri("/regions/" + regionId + "/aois/intersects")
+        .exchange()
+        .expectStatus().isOk()
+        .expectHeader().valueEquals("Content-Type", "application/json")
+        .expectBody(new ParameterizedTypeReference<FindAoisIncludedRegionResponse>() {
+        })
+        .consumeWith(response -> {
+          final FindAoisIncludedRegionResponse responseBody = response.getResponseBody();
+          assertThat(responseBody).isNotNull();
+          assertThat(responseBody.getAois()).isNotNull();
+        });
+
   }
 
 }

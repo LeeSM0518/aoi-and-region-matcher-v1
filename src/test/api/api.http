@@ -43,3 +43,6 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://localhost:8080/regions/1/aois/intersects
+Accept: application/json
