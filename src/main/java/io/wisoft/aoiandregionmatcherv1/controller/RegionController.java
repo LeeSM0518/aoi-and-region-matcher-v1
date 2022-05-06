@@ -1,8 +1,8 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
+import io.wisoft.aoiandregionmatcherv1.dto.AoiDto;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse;
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse.AoiDto;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.service.RegionService;
