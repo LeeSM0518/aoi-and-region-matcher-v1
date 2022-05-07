@@ -1,7 +1,7 @@
 package io.wisoft.aoiandregionmatcherv1.service;
 
 import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionRequest;
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi;
@@ -45,9 +45,9 @@ class RegionServiceTest {
   }
 
   @Test
-  void findAoisIncludedRegionTest() {
+  void findAoisIntersectRegionTest() {
     final int regionId = 1;
-    final FindAoisIncludedRegionRequest request = new FindAoisIncludedRegionRequest(regionId);
+    final FindAoisIntersectRegionRequest request = new FindAoisIntersectRegionRequest(regionId);
 
     final List<AoiRow> aoiRows = List.of(new AoiRow() {
       @Override
@@ -67,11 +67,11 @@ class RegionServiceTest {
     });
 
     regionRepository = mock(RegionRepository.class);
-    given(regionRepository.findAoisIncludedRegion(regionId)).willReturn(aoiRows);
+    given(regionRepository.findAoisIntersectRegion(regionId)).willReturn(aoiRows);
 
-    final List<Aoi> aoisIncludedRegion = regionService.findAoisIncludedRegion(request);
+    final List<Aoi> aoisIntersectRegion = regionService.findAoisIntersectRegion(request);
 
-    assertThat(aoisIncludedRegion.get(0).getId()).isEqualTo(1);
+    assertThat(aoisIntersectRegion.get(0).getId()).isEqualTo(1);
   }
 
 }

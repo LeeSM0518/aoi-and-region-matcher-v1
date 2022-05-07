@@ -1,6 +1,6 @@
 package io.wisoft.aoiandregionmatcherv1.service;
 
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionRequest;
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi.AoiRow;
@@ -27,9 +27,9 @@ public class RegionService {
     return savedRegion.getId();
   }
 
-  public List<Aoi> findAoisIncludedRegion(FindAoisIncludedRegionRequest request) {
+  public List<Aoi> findAoisIntersectRegion(FindAoisIntersectRegionRequest request) {
     return regionRepository
-        .findAoisIncludedRegion(request.getRegionId())
+        .findAoisIntersectRegion(request.getRegionId())
         .stream()
         .map(AoiRow::toEntity)
         .collect(toList());

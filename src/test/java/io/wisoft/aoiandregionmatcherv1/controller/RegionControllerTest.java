@@ -1,7 +1,7 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
 import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse;
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionResponse;
@@ -46,7 +46,7 @@ class RegionControllerTest {
   }
 
   @Test
-  void findAoisIncludedRegionTest() {
+  void findAoisIntersectRegionTest() {
     final int regionId = 1;
     this.webTestClient
         .get()
@@ -54,10 +54,10 @@ class RegionControllerTest {
         .exchange()
         .expectStatus().isOk()
         .expectHeader().valueEquals("Content-Type", "application/json")
-        .expectBody(new ParameterizedTypeReference<FindAoisIncludedRegionResponse>() {
+        .expectBody(new ParameterizedTypeReference<FindAoisIntersectRegionResponse>() {
         })
         .consumeWith(response -> {
-          final FindAoisIncludedRegionResponse responseBody = response.getResponseBody();
+          final FindAoisIntersectRegionResponse responseBody = response.getResponseBody();
           assertThat(responseBody).isNotNull();
           assertThat(responseBody.getAois()).isNotNull();
         });

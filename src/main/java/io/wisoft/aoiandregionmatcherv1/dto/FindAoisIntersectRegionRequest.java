@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class FindAoisIncludedRegionRequest {
+public class FindAoisIntersectRegionRequest {
 
   private final Integer regionId;
 

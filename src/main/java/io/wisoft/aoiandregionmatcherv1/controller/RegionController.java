@@ -1,8 +1,8 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
 import io.wisoft.aoiandregionmatcherv1.dto.AoiDto;
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionRequest;
-import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIncludedRegionResponse;
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionRequest;
+import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.service.RegionService;
@@ -33,14 +33,14 @@ public class RegionController {
   }
 
   @GetMapping("/{regionId}/aois/intersects")
-  public FindAoisIncludedRegionResponse findAoisIncludedRegion(@PathVariable("regionId") Integer regionId) {
-    final FindAoisIncludedRegionRequest request = new FindAoisIncludedRegionRequest(regionId);
+  public FindAoisIntersectRegionResponse findAoisIntersectRegion(@PathVariable("regionId") Integer regionId) {
+    final FindAoisIntersectRegionRequest request = new FindAoisIntersectRegionRequest(regionId);
     final List<AoiDto> aois = regionService
-        .findAoisIncludedRegion(request)
+        .findAoisIntersectRegion(request)
         .stream()
         .map(AoiDto::fromEntity)
         .collect(toList());
-    return new FindAoisIncludedRegionResponse(aois);
+    return new FindAoisIntersectRegionResponse(aois);
   }
 
 
