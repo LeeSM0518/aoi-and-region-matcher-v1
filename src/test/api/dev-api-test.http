@@ -1,0 +1,53 @@
+POST http://localhost:9999/regions
+Content-Type: application/json
+
+{
+  "name": "행정구역",
+  "area": [
+    {
+      "x": 1,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 1,
+      "y": 2
+    }
+  ]
+}
+
+###
+
+POST http://localhost:9999/aois
+Content-Type: application/json
+
+{
+  "name": "관심구역",
+  "area": [
+    {
+      "x": 1,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 1,
+      "y": 2
+    }
+  ]
+}
+
+###
+
+GET http://localhost:9999/regions/1/aois/intersects
+Accept: application/json
+
+###
+
+GET http://localhost:9999/aois?lat=126.979&long=37.576
+Accept: application/json
