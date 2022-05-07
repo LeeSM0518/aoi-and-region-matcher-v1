@@ -1,11 +1,9 @@
 package io.wisoft.aoiandregionmatcherv1;
 
-import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
+import io.wisoft.aoiandregionmatcherv1.annotation.WebLayerTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@IntegrationTest
-@SpringBootTest
+@WebLayerTest
 class AoiAndRegionMatcherV1ApplicationTest {
 
   @Test
