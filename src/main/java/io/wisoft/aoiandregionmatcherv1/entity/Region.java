@@ -27,7 +27,7 @@ public class Region {
   @Column(nullable = false)
   private String name;
 
-  @Column(columnDefinition = "geometry(Point, 4326)", nullable = false)
+  @Column(columnDefinition = "geometry(Polygon, 4326)", nullable = false)
   private Polygon area;
 
   public Region(final String name, final List<Point> area) {
