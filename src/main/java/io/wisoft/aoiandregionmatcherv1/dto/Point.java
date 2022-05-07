@@ -1,13 +1,11 @@
 package io.wisoft.aoiandregionmatcherv1.dto;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
-@Getter
-@RequiredArgsConstructor
+@Value
 public class Point {
 
-  private final double x;
-  private final double y;
+  double x;
+  double y;
 
 }
