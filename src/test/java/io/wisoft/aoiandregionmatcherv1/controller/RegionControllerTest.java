@@ -1,24 +1,21 @@
 package io.wisoft.aoiandregionmatcherv1.controller;
 
-import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
+import io.wisoft.aoiandregionmatcherv1.annotation.WebLayerTest;
 import io.wisoft.aoiandregionmatcherv1.dto.FindAoisIntersectRegionResponse;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionRequest;
 import io.wisoft.aoiandregionmatcherv1.dto.RegisterRegionResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-@SpringBootTest(webEnvironment = RANDOM_PORT)
-@IntegrationTest
+@WebLayerTest
 class RegionControllerTest {
 
   @Autowired
