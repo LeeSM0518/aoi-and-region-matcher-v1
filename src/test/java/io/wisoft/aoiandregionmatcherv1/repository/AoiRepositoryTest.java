@@ -3,7 +3,6 @@ package io.wisoft.aoiandregionmatcherv1.repository;
 import io.wisoft.aoiandregionmatcherv1.annotation.IntegrationTest;
 import io.wisoft.aoiandregionmatcherv1.dto.Point;
 import io.wisoft.aoiandregionmatcherv1.entity.Aoi;
-import io.wisoft.aoiandregionmatcherv1.entity.Aoi.AoiRow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.locationtech.jts.geom.Polygon;
@@ -13,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
 
-import static io.wisoft.aoiandregionmatcherv1.entity.factory.PolygonFactory.createPolygon;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
@@ -57,11 +55,11 @@ class AoiRepositoryTest {
   @Test
   void findAoiNearestFromPointTest() {
     final Point point = new Point(126.979, 37.576);
-    final AoiRow aoi = aoiRepository.findAoiNearestFromPoint(point.getX(), point.getY());
+    final Aoi aoi = aoiRepository.findAoiNearestFromPoint(point.getX(), point.getY());
 
     final Integer id = aoi.getId();
     final String name = aoi.getName();
-    final Polygon area = createPolygon(aoi.getAreaText());
+    final Polygon area = aoi.getArea();
 
     assertThat(id).isEqualTo(expectedAoi.getId());
     assertThat(name).isEqualTo(expectedAoi.getName());

@@ -26,8 +26,7 @@ public class AoiService {
   public Aoi findAoiNearestFromPoint(FindAoiNearestFromPointRequest request) {
     final Point point = new Point(request.getLatitude(), request.getLongitude());
     return aoiRepository
-        .findAoiNearestFromPoint(point.getX(), point.getY())
-        .toEntity();
+        .findAoiNearestFromPoint(point.getX(), point.getY());
   }
 
 }
