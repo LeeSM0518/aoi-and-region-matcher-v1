@@ -36,10 +36,10 @@ class RegionServiceTest {
     final String name = "행정구역";
     final List<Point> area = List.of(new Point(1, 2), new Point(3, 4), new Point(1, 2));
     final RegisterRegionRequest request = new RegisterRegionRequest(name, area);
-    final Region region = mock(Region.class);
+    final Region mockRegion = mock(Region.class);
 
-    given(region.getId()).willReturn(expectedRegionId);
-    given(regionRepository.save(any())).willReturn(region);
+    given(mockRegion.getId()).willReturn(expectedRegionId);
+    given(regionRepository.save(any())).willReturn(mockRegion);
 
     final Integer actualRegionId = regionService.register(request);
 
