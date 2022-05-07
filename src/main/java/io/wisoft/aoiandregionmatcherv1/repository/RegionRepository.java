@@ -13,7 +13,7 @@ import java.util.List;
 public interface RegionRepository extends JpaRepository<Region, Integer> {
 
   @Query(value =
-      "SELECT a.aoi_id, a.name, CAST(st_astext(a.area) AS VARCHAR) AS areaText " +
+      "SELECT a.aoi_id as id, a.name, CAST(st_astext(a.area) AS VARCHAR) AS areaText " +
           "FROM aoi a, region r " +
           "WHERE r.region_id = :id " +
           "AND st_intersects(r.area, a.area)"
