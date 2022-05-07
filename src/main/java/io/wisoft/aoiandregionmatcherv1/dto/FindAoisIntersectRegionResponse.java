@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FindAoisIncludedRegionResponse {
+public class FindAoisIntersectRegionResponse {
 
   private List<AoiDto> aois;
 

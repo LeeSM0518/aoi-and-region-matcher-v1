@@ -33,9 +33,9 @@ class RegionRepositoryTest {
   }
 
   @Test
-  void findAoisIncludedRegionTest() {
+  void findAoisIntersectRegionTest() {
     final int regionId = 1;
-    final List<AoiRow> aoiRows = regionRepository.findAoisIncludedRegion(regionId);
+    final List<AoiRow> aoiRows = regionRepository.findAoisIntersectRegion(regionId);
     assertThat(aoiRows).isNotNull();
   }
 
