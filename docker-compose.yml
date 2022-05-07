@@ -1,11 +1,13 @@
 version: '3.1'
 
 services:
-  postgis:
+  database:
     image: postgis/postgis
     container_name: postgis
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - '5432:5432'
+      - '15432:5432'
     environment:
       POSTGRES_PASSWORD: postgres
 
@@ -13,9 +15,19 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin4
     ports:
-      - '5050:80'
+      - '5055:80'
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@wisoft.io
       PGADMIN_DEFAULT_PASSWORD: admin
     links:
-      - postgis
+      - database
+
+  application:
+    build: .
+    container_name: application
+    restart: always
+    ports:
+      - '8888:8888'
+    depends_on:
+      - database
+
