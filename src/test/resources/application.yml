@@ -1,3 +1,6 @@
+server:
+  port: 8989
+
 spring:
   jpa:
     properties:

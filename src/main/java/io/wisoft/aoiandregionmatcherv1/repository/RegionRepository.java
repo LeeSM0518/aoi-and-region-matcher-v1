@@ -12,9 +12,12 @@ import java.util.List;
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Integer> {
 
-  @Query(value = "SELECT CAST(a.aoi_id as int) as id, cast(a.name as varchar) as name, " +
-      "cast(st_astext(a.area) as varchar) as areaText FROM aoi a, region r WHERE r.region_id = :id " +
-      "AND st_intersects(r.area, a.area)", nativeQuery = true)
+  @Query(value =
+      "SELECT a.aoi_id, a.name, CAST(st_astext(a.area) AS VARCHAR) AS areaText " +
+          "FROM aoi a, region r " +
+          "WHERE r.region_id = :id " +
+          "AND st_intersects(r.area, a.area)"
+      , nativeQuery = true)
   List<AoiRow> findAoisIntersectRegion(@Param(value = "id") Integer regionId);
 
 }
