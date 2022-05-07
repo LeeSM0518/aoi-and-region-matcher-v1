@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = PRIVATE)
 @AllArgsConstructor
 public class FindAoisIntersectRegionResponse {
 
